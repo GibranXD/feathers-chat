@@ -1,0 +1,52 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "./public/",
+  "origins": [
+    "http://localhost:3030"
+  ],
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "mssql": {
+    "client": "mssql",
+    "connection": 
+    {"user": "sa", 
+    "password": "12345", 
+    "server": "WORKPRO",
+    "database": "User", 
+    "options": {
+        "encrypt": false 
+        , "trustedConnection":true
+        
+    }}
+  },
+  "authentication": {
+    "entity": "user",
+    "service": "users",
+    "secret": "Cw7vZmkkoJNGORlm12WxKftJCtoV5pYT",
+    "authStrategies": [
+      "jwt",
+      "local"
+    ],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "oauth": {
+      "github": {
+        "key": "d33445af3dc538dff57e",
+        "secret": "50b371f203c8baa6859b94ad1646fcb9d987960e"
+      }
+    }
+  }
+}
